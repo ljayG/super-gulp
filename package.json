@@ -18,7 +18,6 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-bro": "^2.0.0",
     "gulp-csso": "^4.0.1",
-    "gulp-gh-pages": "^0.5.4",
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.1.0",
     "gulp-webserver": "^0.9.1",
@@ -26,6 +25,8 @@
     "uglifyify": "^5.0.2"
   },
   "dependencies": {
-    "babelify": "^10.0.0"
+    "babelify": "^10.0.0",
+    "gulp-image": "^6.2.1",
+    "gulp-gh-pages": "^0.5.4"
   }
 }
