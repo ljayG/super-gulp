@@ -3,12 +3,17 @@ import gpug from 'gulp-pug';
 import del from 'del';
 import ws from 'gulp-webserver';
 import livereload from 'connect-livereload';
+import image from 'gulp-image';
 
 const routes = {
     pug: {
         watch: 'src/**/*.pug',
         src: 'src/*.pug',
         dest: 'build'
+    },
+    img: {
+        src: 'src/images/*',
+        dest: 'build/images'
     }
 }
 
@@ -33,7 +38,13 @@ const watch = () => {
         .watch(routes.pug.watch, pug);
 };
 
-const prepare = gulp.series([clean]);
+const img = () =>
+    gulp
+        .src(routes.img.src)
+        .pipe(image())
+        .pipe(gulp.dest(routes.img.dest));
+
+const prepare = gulp.series([clean, img]);
 
 const assets = gulp.series([pug]);
 
