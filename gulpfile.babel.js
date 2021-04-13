@@ -6,8 +6,9 @@ import livereload from 'connect-livereload';
 
 const routes = {
     pug: {
-        src: "src/*.pug",
-        dest: "build"
+        watch: 'src/**/*.pug',
+        src: 'src/*.pug',
+        dest: 'build'
     }
 }
 
@@ -25,12 +26,17 @@ const webserver = () =>
         .pipe(ws({
             livereload: true,
             open: true
-        }))
+        }));
+
+const watch = () => {
+    gulp
+        .watch(routes.pug.watch, pug);
+};
 
 const prepare = gulp.series([clean]);
 
 const assets = gulp.series([pug]);
 
-const postDev = gulp.series([webserver]);
+const postDev = gulp.parallel([webserver, watch]);
 
 export const dev = gulp.series([prepare, assets, postDev]); 
