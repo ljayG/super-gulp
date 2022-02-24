@@ -63,7 +63,7 @@ const styles = () =>
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 2 versions']
         }))
-        .pipe(miniCss())
+        //.pipe(miniCss())
         .pipe(gulp.dest(routes.scss.dest));
 
 const js = () =>
@@ -72,7 +72,7 @@ const js = () =>
         .pipe(bro({
             transform: [
                 babelify.configure({ presets: ['@babel/preset-env'] }),
-                [ 'uglifyify', { global: true } ]
+                //[ 'uglifyify', { global: true } ]
             ]
         }))
         .pipe(gulp.dest(routes.js.dest));
