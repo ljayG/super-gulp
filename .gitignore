@@ -1,9 +1,0 @@
-node_modules
-
-
-# dotenv enviroment variable file
-.env
-
-# next.js bulid output
-.next
-build/
